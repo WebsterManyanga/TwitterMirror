@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
 import { TweetComponent } from '../tweet/tweet.component';
 
 @Component({
