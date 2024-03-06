@@ -1,5 +1,49 @@
-<header class="flex justify-between px-10 pt-4 h-12 text-4xl sticky top-0 bg-white z-10">
-  <img src="../assets/Account.png" alt="profile picture">
-  <img src="../assets/Twitter Logo.png" alt="twitter logo">
-  <mat-icon class="text-primary">settings</mat-icon>
-</header>
+<section class="sticky top-0 z-10">
+  <mat-sidenav-container class="!overflow-visible">
+    <mat-sidenav
+      mode="over"
+      position="start"
+      #sidenav
+      class="h-[100vh] min-w-2/3 pl-6 pr-6 pt-3 text-2xl "
+      (click)="sidenav.toggle()"
+    >
+      <div class="flex flex-col w-1/5">
+        <img src="../assets/Account.png" alt="profile picture" />
+        <h1 class="font-semibold">Pixsellz</h1>
+        <p class="text-secondary">&#64;pixsellz</p>
+      </div>
+      <div class="flex gap-2 mt-2">
+        <span class="font-bold">216 <span class="text-secondary font-normal">Following</span></span>
+        <span class="font-bold">117 <span class="text-secondary font-normal">Followers</span></span>
+      </div>
+
+      <ul class="mt-3 *:py-3 *:w-full">
+        <li><mat-icon class="text-secondary">person</mat-icon> <span class="text-black">Profile</span></li>
+        <li><mat-icon class="text-secondary">list_alt</mat-icon> <span class="text-black">Lists</span></li>
+        <li><mat-icon class="text-secondary">chat_bubble</mat-icon><span class="text-black"> Topics</span></li>
+        <li><mat-icon class="text-secondary">bookmark</mat-icon><span class="text-black"> Bookmarks</span></li>
+        <li><mat-icon class="text-secondary">flash_on</mat-icon> <span class="text-black">Moments</span></li>
+      </ul>
+
+      <div class="flex flex-col gap-4 mt-8 ">
+        <span>Settings and privacy</span>
+        <span>Help Center</span>
+      </div>
+      
+      <div class="text-primary flex w-full p-6 justify-between text-4xl absolute bottom-0">
+        <mat-icon>lightbulb</mat-icon>
+        <mat-icon>qr_code_2</mat-icon>
+      </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <header class="flex justify-between px-10 pt-4 h-12 text-4xl bg-white">
+        <button mat-button (click)="sidenav.toggle()">
+          <img src="../assets/Account.png" alt="profile picture" />
+        </button>
+        <img src="../assets/Twitter Logo.png" alt="twitter logo" />
+        <mat-icon class="text-primary">settings</mat-icon>
+      </header>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</section>
