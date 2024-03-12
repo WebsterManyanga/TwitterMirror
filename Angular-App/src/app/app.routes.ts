@@ -4,7 +4,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { SettingsComponent } from './settings/settings.component';
 import { MessagesComponent } from './messages/messages.component';
 import { SearchComponent } from './search/search.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './ProfileSection/profile/profile.component';
 
 export const routes: Routes = [
   {
