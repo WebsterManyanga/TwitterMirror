@@ -8,7 +8,7 @@
       (click)="sidenav.toggle()"
     >
       <div class="flex flex-col w-1/5">
-        <img src="../assets/Account.png" alt="profile picture" />
+        <img src="../../assets/dp.jpeg" alt="display photo" />
         <h1 class="font-semibold">Pixsellz</h1>
         <p class="text-secondary">&#64;pixsellz</p>
       </div>
@@ -45,7 +45,7 @@
       </ul>
 
       <div class="flex flex-col gap-4 mt-8">
-        <a  routerLink="/settings">Settings and privacy</a>
+        <a routerLink="/settings">Settings and privacy</a>
         <a>Help Center</a>
       </div>
 
@@ -58,12 +58,25 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <header class="flex justify-between px-10 pt-4 h-12 text-4xl bg-white">
+      <header class="flex justify-between px-10 pt-4 pb-2 text-4xl bg-white">
         <button mat-button (click)="sidenav.toggle()">
-          <img src="../assets/Account.png" alt="profile picture" />
+          <div
+            class="border-2 rounded-full w-12 h-12 overflow-clip flex justify-center items-center"
+          >
+            <img [src]="user.photo" alt="profile picture" class="w-fit" />
+          </div>
         </button>
-        <img src="../assets/Twitter Logo.png" alt="twitter logo" />
-        <mat-icon class="text-primary">settings</mat-icon>
+        <div class="w-10">
+          <a href="/"
+            ><img
+              src="../assets/Twitter Logo.png"
+              class="w-full"
+              alt="twitter logo"
+          /></a>
+        </div>
+        <a href="/settings"
+          ><mat-icon class="text-primary">settings</mat-icon></a
+        >
       </header>
     </mat-sidenav-content>
   </mat-sidenav-container>

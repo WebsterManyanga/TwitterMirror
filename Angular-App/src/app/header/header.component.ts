@@ -3,6 +3,8 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { RouterLink } from '@angular/router';
+import { UserService } from '../user.service';
+import { User } from '../user';
 
 
 @Component({
@@ -14,8 +16,15 @@ import { RouterLink } from '@angular/router';
 })
 export class HeaderComponent {
   showMenu = false;
-
-  toggleView() {
-
+  user:User = {
+    name: '',
+    username: '',
+    bio: '',
+    photo: ''
   }
+
+  constructor(private userService:UserService) {
+    this.user = {...userService.userInfo}
+  }
+
 }
