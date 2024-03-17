@@ -8,9 +8,10 @@
       (click)="sidenav.toggle()"
     >
       <div class="flex flex-col w-1/5">
-        <img src="../../assets/dp.jpeg" alt="display photo" />
-        <h1 class="font-semibold">Pixsellz</h1>
-        <p class="text-secondary">&#64;pixsellz</p>
+        <div class="w-16 h-16 rounded-full overflow-clip"><img [src]="user.photo" alt="display photo"/></div>
+        
+        <h1 class="font-semibold">{{user.name}}</h1>
+        <p class="text-secondary">&#64;{{user.username}}</p>
       </div>
       <div class="flex gap-2 mt-2">
         <span class="font-bold"
