@@ -1,14 +1,7 @@
 <section class=" pl-8 relative flex flex-col gap-4 h-[90vh] pb-36 overflow-scroll">
-  <app-tweet></app-tweet>
-  <app-tweet></app-tweet>
-  <app-tweet></app-tweet>
-  <app-tweet></app-tweet>
-  <app-tweet></app-tweet>
-  <app-tweet></app-tweet>
-  <app-tweet></app-tweet>
-  <app-tweet></app-tweet>
-  <app-tweet></app-tweet>
-  <app-tweet></app-tweet>
-  <app-tweet></app-tweet>
-  <app-tweet></app-tweet>
+  <ul *ngFor="let tweet of tweets">
+    <li>
+      <app-tweet [tweet]="tweet"></app-tweet>
+    </li> 
+  </ul>
 </section>
