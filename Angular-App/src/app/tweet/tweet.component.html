@@ -22,10 +22,11 @@
         ><span class="text-lg">46</span></span
       >
       <span><mat-icon>repeat</mat-icon><span class="text-lg">18</span></span>
-      <span
-        ><mat-icon>favorite_outline</mat-icon
-        ><span class="text-lg">{{ tweet.likes.length }}</span></span
-      >
+      <button (click)="like()" [class.text-red-500]="liked">
+        <mat-icon *ngIf="!liked">favorite_outline</mat-icon>
+        <mat-icon *ngIf="liked">favorite</mat-icon>
+        <span class="text-lg">{{ tweet.likes.length }}</span>
+      </button>
       <span><mat-icon>upload</mat-icon> </span>
     </div>
   </div>

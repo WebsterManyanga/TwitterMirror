@@ -22,6 +22,7 @@ export class HeaderComponent {
     bio: '',
     photo: '',
     headerPhoto: '',
+    created: '',
     following: [],
     followers: []
   }

@@ -18,6 +18,7 @@ export class ProfileComponent {
     username: '',
     bio: '',
     photo: '',
+    created: '',
     headerPhoto: '',
     following: [],
     followers: []

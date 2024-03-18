@@ -19,10 +19,12 @@ export class TweetComponent implements OnInit {
     username: '',
     bio: '',
     photo: '',
+    created: '',
     headerPhoto: '',
     followers: [],
     following: [],
   };
+  liked = false;
   likedBy = '';
   constructor(private usersService: UserService) {}
 
@@ -42,5 +44,18 @@ export class TweetComponent implements OnInit {
       (user) => user.username === this.tweet.likes[i]
     );
     return j !== -1 ? this.usersService.OtherUsers[j].name : '';
+  }
+
+  like() {
+    if (!this.liked) {
+      this.tweet.likes.push(this.userInfo.username);
+    } else {
+      const i = this.tweet.likes.findIndex(
+        (username) => username === this.userInfo.username
+      );
+      this.tweet.likes.splice(i, 1);
+    }
+
+    this.liked = !this.liked;
   }
 }

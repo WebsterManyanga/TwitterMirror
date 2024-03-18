@@ -26,6 +26,7 @@ export class NavComponent {
     username: '',
     bio: '',
     photo: '',
+    created: '',
     headerPhoto: '',
     followers: [],
     following: [],
