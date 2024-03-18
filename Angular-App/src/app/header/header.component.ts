@@ -20,7 +20,10 @@ export class HeaderComponent {
     name: '',
     username: '',
     bio: '',
-    photo: ''
+    photo: '',
+    headerPhoto: '',
+    following: [],
+    followers: []
   }
 
   constructor(private userService:UserService) {

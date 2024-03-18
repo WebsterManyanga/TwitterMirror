@@ -19,6 +19,9 @@ export class TweetComponent implements OnInit {
     username: '',
     bio: '',
     photo: '',
+    headerPhoto: '',
+    followers: [],
+    following: [],
   };
   likedBy = '';
   constructor(private usersService: UserService) {}

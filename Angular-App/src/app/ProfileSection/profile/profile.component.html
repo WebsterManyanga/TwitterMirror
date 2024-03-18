@@ -1,12 +1,17 @@
 <section class="h-[100vh]  overflow-clip">
   <header>
     <div class="relative">
-      <img src="../../assets/Heading Bar.png" alt="heading bar" class="w-full" />
-      <img
-        src="../../assets/Account.png"
+      <div class="w-full h-44 overflow-clip">
+        <img [src]="user.headerPhoto" alt="heading bar" class=""/>
+      </div>
+      <div class="w-20 h-20 border-2 border-white rounded-full absolute -bottom-10 left-4 overflow-clip">
+        
+        <img
+        [src]="user.photo"
         alt="display photo"
-        class="w-20 p-1 bg-white rounded-full absolute -bottom-10 left-4"
+        class=""
       />
+      </div>
     </div>
     <div class="w-full flex justify-end pr-2">
       <button

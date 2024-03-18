@@ -20,19 +20,20 @@ import { User } from '../user';
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss',
 })
-export class NavComponent{
+export class NavComponent {
   user: User = {
     name: '',
     username: '',
     bio: '',
     photo: '',
+    headerPhoto: '',
+    followers: [],
+    following: [],
   };
 
   constructor(public dialog: MatDialog, private userService: UserService) {
-    Object.assign(this.user, this.userService.userInfo)
-
+    Object.assign(this.user, this.userService.userInfo);
   }
-
 
   startTweet() {
     const dialogRef = this.dialog.open(TweetingComponent, {
