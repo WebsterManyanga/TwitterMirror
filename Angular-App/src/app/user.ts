@@ -3,6 +3,7 @@ export interface User {
   username: string,
   bio: string,
   photo: string,
+  created: string,
   headerPhoto: string,
   following: string[],
   followers: string[]
