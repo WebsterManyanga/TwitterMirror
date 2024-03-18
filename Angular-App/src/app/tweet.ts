@@ -1,5 +1,5 @@
 export class Tweet {
-  constructor(public userId: string, public tweet: string) {
+  constructor(public userId: string, public tweet: string, public likes:string[] = []) {
     this.tweet = styleHashTags(tweet);
   }
 }

@@ -1,14 +1,16 @@
 <div class="flex py-2 pr-4 mt-4 h-fit gap-6 relative w-full">
-  <div >
-    <div class="w-16 h-16 rounded-full overflow-clip">    <img [src]="userInfo.photo" alt="user" class="w-full" />
+  <div>
+    <div class="w-16 h-16 rounded-full overflow-clip">
+      <img [src]="userInfo.photo" alt="user" class="w-full" />
     </div>
   </div>
   <div class="w-full">
-    <p class="text-secondary absolute left-14 -top-3">
-      <mat-icon>favorite</mat-icon> Zack John liked
+    <p class="text-secondary absolute left-14 -top-3" *ngIf="likedBy">
+      <mat-icon>favorite</mat-icon> {{ this.likedBy }} liked
     </p>
     <h1 class="relative">
-      {{userInfo.name}} <span class="text-secondary">&#64;{{tweet.userId}} . 3h</span>
+      {{ userInfo.name }}
+      <span class="text-secondary">&#64;{{ tweet.userId }} . 3h</span>
       <span class="text-secondary text-2xl absolute right-0"
         ><mat-icon class="">expand_more</mat-icon></span
       >
@@ -20,7 +22,10 @@
         ><span class="text-lg">46</span></span
       >
       <span><mat-icon>repeat</mat-icon><span class="text-lg">18</span></span>
-      <span><mat-icon>favorite_outline</mat-icon><span class="text-lg">63</span></span>
+      <span
+        ><mat-icon>favorite_outline</mat-icon
+        ><span class="text-lg">{{ tweet.likes.length }}</span></span
+      >
       <span><mat-icon>upload</mat-icon> </span>
     </div>
   </div>

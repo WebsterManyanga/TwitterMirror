@@ -10,6 +10,8 @@ export class UserService {
     username: 'spaceCadet',
     bio: 'Flying to the sun soon',
     photo: '../assets/dp.png',
+    followers: ['tchala', 'bobmarley'],
+    following: ['bobmarley', 'shakespeare', 'beethoven', 'picasso', 'callMeIsaac', 'spongebob', 'mrKrabs', 'tchala']
   };
 
   OtherUsers: User[] = [
