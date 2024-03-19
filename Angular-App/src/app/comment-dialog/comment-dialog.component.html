@@ -1,0 +1,16 @@
+  <mat-dialog-actions class="flex !justify-between">
+    <button class="!text-primary" mat-button mat-dialog-close>Cancel</button>
+    <button
+      class="!text-white bg-primary py-1 px-4 rounded-2xl font-bold"
+      [mat-dialog-close]="true"
+    >
+      Post
+    </button>
+  </mat-dialog-actions>
+  <mat-dialog-content>
+    <img src="../../assets/Round.png" alt="profile picture" class="" />
+    <textarea
+      class="w-full h-full focus:outline-none"
+      placeholder="Post your reply"
+    ></textarea>
+  </mat-dialog-content>

@@ -4,11 +4,15 @@ import { Tweet } from '../tweet';
 import { UserService } from '../user.service';
 import { User } from '../user';
 import { CommonModule } from '@angular/common';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { CommentDialogComponent } from '../comment-dialog/comment-dialog.component';
+import { MatButtonModule } from '@angular/material/button';
+import { RepostDialog1Component } from '../repost-dialog1/repost-dialog1.component';
 
 @Component({
   selector: 'app-tweet',
   standalone: true,
-  imports: [MatIconModule, CommonModule],
+  imports: [MatIconModule, CommonModule, MatDialogModule, MatButtonModule],
   templateUrl: './tweet.component.html',
   styleUrl: './tweet.component.scss',
 })
@@ -26,7 +30,7 @@ export class TweetComponent implements OnInit {
   };
   liked = false;
   likedBy = '';
-  constructor(private usersService: UserService) {}
+  constructor(private usersService: UserService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     const i = this.usersService.OtherUsers.findIndex(
@@ -58,4 +62,31 @@ export class TweetComponent implements OnInit {
 
     this.liked = !this.liked;
   }
+  openCommentDialog() {
+    const dialogRef = this.dialog.open(CommentDialogComponent,{
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      width: '100%',
+      height: '100%',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  
+  openRepostDialog() {
+    const dialogRef = this.dialog.open(RepostDialog1Component,{
+      maxWidth: '100vw',
+      width: '100%',
+      position: {bottom: '0'}
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
+
+
+
