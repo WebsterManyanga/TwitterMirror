@@ -5,10 +5,11 @@ import { SettingsComponent } from './settings/settings.component';
 import { MessagesComponent } from './messages/messages.component';
 import { SearchComponent } from './search/search.component';
 import { ProfileComponent } from './ProfileSection/profile/profile.component';
+import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
   {
-    component: TweetsPageComponent,
+    component: HomeComponent,
     path: ''
   },
   {
