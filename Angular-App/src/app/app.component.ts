@@ -4,6 +4,11 @@ import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './nav/nav.component';
 import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from './header/header.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { TweetsPageComponent } from './tweets-page/tweets-page.component';
+import { SearchComponent } from './search/search.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +19,11 @@ import { HeaderComponent } from './header/header.component';
     NavComponent,
     MatIconModule,
     HeaderComponent,
+    MatTabsModule,
+    TweetsPageComponent,
+    SearchComponent,
+    NotificationsComponent,
+    MessagesComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

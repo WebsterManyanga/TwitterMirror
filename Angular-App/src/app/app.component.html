@@ -1,7 +1,29 @@
 <div class="h-[100vh] overflow-clip">
   <app-header></app-header>
   <div class="h-full">
-    <router-outlet></router-outlet>
+    <mat-tab-group animationDuration="0ms" headerPosition="below" >
+      <mat-tab>
+        <ng-template mat-tab-label> <mat-icon>home</mat-icon> </ng-template
+        >
+        <app-tweets-page></app-tweets-page>
+        </mat-tab
+      >
+      <mat-tab>
+        <ng-template mat-tab-label> <mat-icon>search</mat-icon> </ng-template
+        ><app-search></app-search></mat-tab
+      >
+      <mat-tab label="Third"
+        ><ng-template mat-tab-label>
+          <mat-icon>notifications</mat-icon> </ng-template
+        ><app-notifications></app-notifications></mat-tab
+      >
+
+      <mat-tab label="Third"
+        ><ng-template mat-tab-label>
+          <mat-icon>mail_outline</mat-icon> </ng-template
+        ><app-messages></app-messages></mat-tab
+      >
+    </mat-tab-group>
+    <!-- <router-outlet></router-outlet> -->
   </div>
-  <app-nav></app-nav>
 </div>
