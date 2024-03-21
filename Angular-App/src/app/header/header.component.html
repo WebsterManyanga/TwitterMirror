@@ -1,5 +1,5 @@
 <section class="sticky top-0 z-10">
-  <mat-sidenav-container class="!overflow-visible">
+  <mat-sidenav-container class="!overflow-visible" hasBackdrop="false">
     <mat-sidenav
       mode="over"
       position="start"
@@ -59,7 +59,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <header class="flex justify-between px-10 pt-4 text-4xl pb-3 bg-white">
+      <header class="flex justify-between px-10  pt-4 text-4xl pb-3 bg-white">
         <button mat-button (click)="sidenav.toggle()">
           <div
             class="border-2 rounded-full w-12 h-12 overflow-clip flex justify-center items-center"
@@ -67,13 +67,10 @@
             <img [src]="user.photo" alt="profile picture" class="w-fit" />
           </div>
         </button>
-        <div class="w-10">
+        <div>
           <a href="/"
-            ><img
-              src="../assets/Twitter Logo.png"
-              class="w-full"
-              alt="twitter logo"
-          /></a>
+          [innerHtml]="headerTitle"
+            ></a>
         </div>
         <a href="/settings"
           ><mat-icon class="text-primary">settings</mat-icon></a
@@ -83,3 +80,4 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </section>
+

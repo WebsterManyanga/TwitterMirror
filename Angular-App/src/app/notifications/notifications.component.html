@@ -1,4 +1,7 @@
-<section class="h-[85vh] pb-8 overflow-scroll">
+
+<section>
+  <app-header headerTitle="<h1 class='text-xl'>Notifications</h1>"></app-header>
+  <div class="h-[85vh] pb-8 overflow-scroll">
   <nav class="w-full text-secondary text-2xl font-medium grid grid-cols-2 sticky top-0 bg-white">
     <button class="text-center border-primary" [class.border-b-4]="!mentionsActive" (click)="onViewMentions(false)">All</button>
     <button class="text-center border-primary" [class.border-b-4]="mentionsActive" (click)="onViewMentions(true)">Mentions</button>
@@ -58,4 +61,4 @@
   
   </div>
   
-</section>
+</div></section>

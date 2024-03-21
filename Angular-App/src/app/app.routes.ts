@@ -12,20 +12,8 @@ export const routes: Routes = [
     path: ''
   },
   {
-    component: NotificationsComponent,
-    path: 'notifications'
-  },
-  {
     component: SettingsComponent,
     path: 'settings'
-  },
-  {
-    component: MessagesComponent,
-    path: 'messages'
-  },
-  {
-    component: SearchComponent,
-    path: 'search'
   },
   {
     component: ProfileComponent,

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -26,6 +26,12 @@ export class HeaderComponent {
     following: [],
     followers: []
   }
+
+  @Input() headerTitle = `<div class='w-10'><img
+  src="../assets/Twitter Logo.png"
+  class="w-full"
+  alt="twitter logo"
+/></div>`
 
   constructor(private userService:UserService) {
     this.user = {...userService.userInfo}

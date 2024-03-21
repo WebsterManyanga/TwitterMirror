@@ -4,11 +4,12 @@ import { Tweet } from '../tweet';
 import { TweetsService } from '../tweets.service';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../user.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-tweets-page',
   standalone: true,
-  imports: [TweetComponent, CommonModule],
+  imports: [TweetComponent, CommonModule,HeaderComponent],
   templateUrl: './tweets-page.component.html',
   styleUrl: './tweets-page.component.scss',
 })
