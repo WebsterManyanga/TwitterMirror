@@ -8,6 +8,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { CommentDialogComponent } from '../comment-dialog/comment-dialog.component';
 import { MatButtonModule } from '@angular/material/button';
 import { RepostDialog1Component } from '../repost-dialog1/repost-dialog1.component';
+import { TweetsService } from '../tweets.service';
 
 @Component({
   selector: 'app-tweet',
@@ -17,7 +18,7 @@ import { RepostDialog1Component } from '../repost-dialog1/repost-dialog1.compone
   styleUrl: './tweet.component.scss',
 })
 export class TweetComponent implements OnInit {
-  @Input() tweet: Tweet = new Tweet('me', 'hi');
+  @Input() tweet: Tweet = new Tweet('me', 'hi', 0);
   userInfo: User = {
     name: '',
     username: '',
@@ -28,9 +29,23 @@ export class TweetComponent implements OnInit {
     followers: [],
     following: [],
   };
-  liked = false;
   likedBy = '';
-  constructor(private usersService: UserService, private dialog: MatDialog) {}
+  liked = true;
+
+  constructor(private usersService: UserService, private dialog: MatDialog,public tweetsService: TweetsService) {
+    this.liked = this.tweet.liked;
+  }
+
+  like() {
+    if (!this.liked) {
+      this.tweetsService.addLike(true, this.tweet.id);
+    } else {
+      this.tweetsService.addLike(false, this.tweet.id);
+
+    }
+
+    this.liked = !this.liked;
+  }
 
   ngOnInit(): void {
     const i = this.usersService.OtherUsers.findIndex(
@@ -50,18 +65,7 @@ export class TweetComponent implements OnInit {
     return j !== -1 ? this.usersService.OtherUsers[j].name : '';
   }
 
-  like() {
-    if (!this.liked) {
-      this.tweet.likes.push(this.userInfo.username);
-    } else {
-      const i = this.tweet.likes.findIndex(
-        (username) => username === this.userInfo.username
-      );
-      this.tweet.likes.splice(i, 1);
-    }
 
-    this.liked = !this.liked;
-  }
   openCommentDialog() {
     const dialogRef = this.dialog.open(CommentDialogComponent,{
       maxWidth: '100vw',

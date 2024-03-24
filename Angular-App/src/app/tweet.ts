@@ -1,5 +1,15 @@
+import { TweetsService } from './tweets.service';
+
 export class Tweet {
-  constructor(public userId: string, public tweet: string, public likes:string[] = []) {
+  liked = false;
+
+  constructor(
+    public userId: string,
+    public tweet: string,
+    public id: number,
+    public likes: string[] = [],
+ 
+  ) {
     this.tweet = styleHashTags(tweet);
   }
 }
@@ -10,7 +20,7 @@ function styleHashTags(message: string): string {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === '#') {
       openHash = true;
-      arr[i-1] = [arr[i-1]] + '<span class="text-primary">'
+      arr[i - 1] = [arr[i - 1]] + '<span class="text-primary">';
     }
 
     if (openHash && arr[i] === ' ') {

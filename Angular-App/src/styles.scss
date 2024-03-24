@@ -78,3 +78,9 @@ mat-icon {
   width: min-content !important;
   height: min-content !important;
 }
+
+
+button {
+  touch-action: manipulation;
+}
+
