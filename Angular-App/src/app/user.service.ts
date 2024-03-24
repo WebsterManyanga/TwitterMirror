@@ -8,10 +8,10 @@ export class UserService {
   userInfo:User = {
     name: 'Icarus',
     username: 'spaceCadet',
-    bio: 'Flying to the sun soon ☀️',
+    bio: 'Flying to the sun soon. I mean what choice do I have ☀️',
     photo: '../assets/dp.png',
     headerPhoto: '../assets/bg-photo.jpg',
-    created: 'September 2018',
+    created: 'January 2012',
     followers: ['tchala', 'bobmarley'],
     following: [
       'bobmarley',
