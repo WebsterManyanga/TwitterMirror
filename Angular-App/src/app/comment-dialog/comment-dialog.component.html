@@ -1,16 +1,21 @@
-  <mat-dialog-actions class="flex !justify-between">
-    <button class="!text-primary" mat-button mat-dialog-close>Cancel</button>
-    <button
-      class="!text-white bg-primary py-1 px-4 rounded-2xl font-bold"
-      [mat-dialog-close]="true"
-    >
-      Post
-    </button>
-  </mat-dialog-actions>
-  <mat-dialog-content>
-    <img src="../../assets/Round.png" alt="profile picture" class="" />
-    <textarea
-      class="w-full h-full focus:outline-none"
-      placeholder="Post your reply"
-    ></textarea>
-  </mat-dialog-content>
+<mat-dialog-actions class="flex !justify-between">
+  <button class="!text-primary" mat-button mat-dialog-close>Cancel</button>
+  <button
+    class="!text-white bg-primary py-1 px-4 rounded-2xl font-bold disabled:opacity-50 transition-opacity"
+    [mat-dialog-close]="replyText.value"
+    [disabled]="disableButton"
+  >
+    Post
+  </button>
+</mat-dialog-actions>
+<mat-dialog-content class="!pt-0">
+  <div class="w-16 h-16 rounded-full overflow-clip">
+    <img [src]="user.photo" alt="display photo" />
+  </div>
+  <textarea
+    class="w-full h-full focus:outline-none mt-2"
+    placeholder="Post your reply"
+    (input)="validateReply(replyText.value)"
+    #replyText
+  ></textarea>
+</mat-dialog-content>

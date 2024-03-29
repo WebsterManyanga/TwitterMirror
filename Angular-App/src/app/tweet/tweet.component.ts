@@ -9,6 +9,7 @@ import { CommentDialogComponent } from '../comment-dialog/comment-dialog.compone
 import { MatButtonModule } from '@angular/material/button';
 import { RepostDialog1Component } from '../repost-dialog1/repost-dialog1.component';
 import { TweetsService } from '../tweets.service';
+import { Reply } from '../reply';
 
 @Component({
   selector: 'app-tweet',
@@ -31,8 +32,13 @@ export class TweetComponent implements OnInit {
   };
   likedBy = '';
   liked = true;
+  timePassed = '';
 
-  constructor(private usersService: UserService, private dialog: MatDialog,public tweetsService: TweetsService) {
+  constructor(
+    private usersService: UserService,
+    public dialog: MatDialog,
+    public tweetsService: TweetsService
+  ) {
     this.liked = this.tweet.liked;
   }
 
@@ -41,7 +47,6 @@ export class TweetComponent implements OnInit {
       this.tweetsService.addLike(true, this.tweet.id);
     } else {
       this.tweetsService.addLike(false, this.tweet.id);
-
     }
 
     this.liked = !this.liked;
@@ -55,6 +60,7 @@ export class TweetComponent implements OnInit {
       this.userInfo = Object.assign({}, this.usersService.OtherUsers[i]);
     }
     this.likedBy = this.randomLike();
+    this.timePassed = this.calculateTimeSince(this.tweet.date);
   }
 
   randomLike() {
@@ -65,9 +71,8 @@ export class TweetComponent implements OnInit {
     return j !== -1 ? this.usersService.OtherUsers[j].name : '';
   }
 
-
   openCommentDialog() {
-    const dialogRef = this.dialog.open(CommentDialogComponent,{
+    const dialogRef = this.dialog.open(CommentDialogComponent, {
       maxWidth: '100vw',
       maxHeight: '100vh',
       width: '100%',
@@ -78,19 +83,44 @@ export class TweetComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
-  
+
   openRepostDialog() {
-    const dialogRef = this.dialog.open(RepostDialog1Component,{
+    const dialogRef = this.dialog.open(RepostDialog1Component, {
       maxWidth: '100vw',
       width: '100%',
-      position: {bottom: '0'}
+      position: { bottom: '0' },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
+      const i = this.tweetsService.tweets.findIndex(
+        (tweet) => tweet === this.tweet
+      );
+      this.tweetsService.tweets[i].replies.push(
+        new Reply(this.usersService.userInfo, result)
+      );
     });
   }
+
+  calculateTimeSince(dateCreated: Date): string {
+    const now = new Date();
+    const diffInMilliseconds = now.getTime() - dateCreated.getTime();
+    const diffInSeconds = diffInMilliseconds / 1000;
+    const diffInMinutes = diffInSeconds / 60;
+    const diffInHours = diffInMinutes / 60;
+    const diffInDays = diffInHours / 24;
+    const diffInWeeks = diffInDays / 7;
+    const diffInYears = diffInDays / 365;
+
+    if (diffInYears >= 1) {
+      return `${Math.floor(diffInYears)} y`;
+    } else if (diffInWeeks >= 1) {
+      return `${Math.floor(diffInWeeks)}w`;
+    } else if (diffInDays >= 1) {
+      return `${Math.floor(diffInDays)}d`;
+    } else if (diffInHours >= 1) {
+      return `${Math.floor(diffInHours)}h`;
+    } else {
+      return `${Math.floor(diffInMinutes)}m`;
+    }
+  }
 }
-
-
-
