@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RepostDialog1Component } from './repost-dialog1.component';
+import { QuoteDialogComponent } from './quote-dialog.component';
 
-describe('RepostDialog1Component', () => {
-  let component: RepostDialog1Component;
-  let fixture: ComponentFixture<RepostDialog1Component>;
+describe('QuoteDialogComponent', () => {
+  let component: QuoteDialogComponent;
+  let fixture: ComponentFixture<QuoteDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RepostDialog1Component]
+      imports: [QuoteDialogComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(RepostDialog1Component);
+    fixture = TestBed.createComponent(QuoteDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

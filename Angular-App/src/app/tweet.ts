@@ -1,4 +1,5 @@
 import { Reply } from "./reply";
+import { User } from "./user";
 
 export class Tweet {
   liked = false;
@@ -9,7 +10,8 @@ export class Tweet {
     public id: number,
     public date: Date = new Date(Date.now()),
     public likes: string[] = [],
-    public replies: Reply[] = []
+    public replies: Reply[] = [],
+    public reposts: User[] = []
  
   ) {
     this.tweet = styleHashTags(tweet);

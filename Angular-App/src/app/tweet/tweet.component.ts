@@ -32,6 +32,7 @@ export class TweetComponent implements OnInit {
   };
   likedBy = '';
   liked = true;
+  repost = false
   timePassed = '';
 
   constructor(
@@ -39,7 +40,9 @@ export class TweetComponent implements OnInit {
     public dialog: MatDialog,
     public tweetsService: TweetsService
   ) {
+
     this.liked = this.tweet.liked;
+    this.repost = this.tweet.reposts.find(user => user.username === this.usersService.userInfo.username) ? true : false;
   }
 
   like() {
@@ -78,19 +81,7 @@ export class TweetComponent implements OnInit {
       width: '100%',
       height: '100%',
     });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
-  openRepostDialog() {
-    const dialogRef = this.dialog.open(RepostDialog1Component, {
-      maxWidth: '100vw',
-      width: '100%',
-      position: { bottom: '0' },
-    });
-
+    
     dialogRef.afterClosed().subscribe((result) => {
       const i = this.tweetsService.tweets.findIndex(
         (tweet) => tweet === this.tweet
@@ -99,6 +90,32 @@ export class TweetComponent implements OnInit {
         new Reply(this.usersService.userInfo, result)
       );
     });
+
+    
+  }
+
+  openRepostDialog() {
+    if (this.repost) {
+      this.repost = false;
+      const i = this.tweetsService.tweets.findIndex(tweet => tweet.id === this.tweet.id);
+      this.tweetsService.deleteRepost(i);
+
+      return;
+    }
+    const dialogRef = this.dialog.open(RepostDialog1Component, {
+      maxWidth: '100vw',
+      width: '100%',
+      position: { bottom: '0' },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.repost = true;
+        const i = this.tweetsService.tweets.findIndex(tweet => tweet.id === this.tweet.id);
+        this.tweetsService.tweets[i].reposts.push(this.usersService.userInfo);
+      }
+    });
+
   }
 
   calculateTimeSince(dateCreated: Date): string {

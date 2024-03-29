@@ -110,4 +110,10 @@ export class TweetsService {
   
     return arr.join('');
   }
+
+  deleteRepost(i: number) {
+    const j = this.tweets[i].reposts.findIndex(user => user.username === this.userService.userInfo.username);
+    this.tweets[i].reposts.splice(j, 1);
+    console.log(this.tweets[i].reposts);
+  }
 }

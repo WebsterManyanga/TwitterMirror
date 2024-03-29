@@ -10,15 +10,19 @@
     </p>
     <h1 class="relative">
       {{ userInfo.name }}
-      <span class="text-secondary">&#64;{{ tweet.userId }} .{{timePassed}}</span>
+      <span class="text-secondary"
+        >&#64;{{ tweet.userId }} .{{ timePassed }}</span
+      >
     </h1>
     <p [innerHTML]="tweet.tweet"></p>
     <div class="flex justify-between gap-4 text-2xl text-secondary w-5/6">
       <button (click)="openCommentDialog()">
-        <mat-icon>chat_bubble_outline</mat-icon><span class="text-lg">{{tweet.replies.length}}</span>
+        <mat-icon>chat_bubble_outline</mat-icon
+        ><span class="text-lg">{{ tweet.replies.length }}</span>
       </button>
-      <button (click)="openRepostDialog()">
-        <mat-icon>repeat</mat-icon><span class="text-lg">18</span>
+      <button (click)="openRepostDialog()" [class.text-green-400]="repost">
+        <mat-icon>repeat</mat-icon
+        ><span class="text-lg">{{ tweet.reposts.length }}</span>
       </button>
       <button (click)="like()" [class.text-red-500]="liked">
         <mat-icon *ngIf="!liked">favorite_outline</mat-icon>

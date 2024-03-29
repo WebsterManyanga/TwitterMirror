@@ -5,12 +5,13 @@ import { UserService } from '../user.service';
 import { User } from '../user';
 
 @Component({
-  selector: 'app-comment-dialog',
+  selector: 'app-quote-dialog',
   standalone: true,
   imports: [MatDialogModule, MatButtonModule],
-  templateUrl: './comment-dialog.component.html',
+  templateUrl: './quote-dialog.component.html',
+  styleUrl: './quote-dialog.component.scss'
 })
-export class CommentDialogComponent {
+export class QuoteDialogComponent {
   user:User = {
     name: '',
     username: '',
