@@ -50,10 +50,11 @@ $Angular-App-theme: mat.define-light-theme(
     color: (
       primary: $Angular-App-primary,
       accent: $Angular-App-accent,
-      warn: $Angular-App-warn,
+      warn: $Angular-App-warn
     ),
   )
 );
+
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component

@@ -1,6 +1,6 @@
-<div class="h-full" [class.!bg-black]="themeService.isDarkMode"
+<div class="h-full " [class.!bg-black]="themeService.isDarkMode"
 [class.!text-white]="themeService.isDarkMode">
-    <mat-tab-group animationDuration="0ms" headerPosition="below">
+    <mat-tab-group animationDuration="0ms" headerPosition="below" >
       <mat-tab>
         <ng-template mat-tab-label
           ><span class="text-3xl py-6"><mat-icon>home</mat-icon></span>
@@ -8,8 +8,8 @@
         <app-tweets-page></app-tweets-page>
       </mat-tab>
       <mat-tab>
-        <ng-template mat-tab-label
-          ><span class="text-3xl py-6"
+        <ng-template mat-tab-label 
+          ><span class="text-3xl py-6" 
             ><mat-icon>search</mat-icon></span
           ></ng-template
         ><app-search></app-search

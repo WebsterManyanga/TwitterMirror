@@ -29,4 +29,5 @@ import { ThemeService } from './theme.service';
 })
 export class AppComponent {
   title = 'Twitter kinda';
+
 }

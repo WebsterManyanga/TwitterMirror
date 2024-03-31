@@ -9,6 +9,7 @@
   <label class="inline-flex items-center cursor-pointer">
     <input
       type="checkbox"
+      [checked]="themeService.isDarkMode"
       value=""
       class="sr-only peer"
       (click)="themeService.toggleTheme()"
