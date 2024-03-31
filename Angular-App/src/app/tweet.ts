@@ -2,7 +2,6 @@ import { Reply } from "./reply";
 import { User } from "./user";
 
 export class Tweet {
-  liked = false;
 
   constructor(
     public userId: string,

@@ -24,11 +24,11 @@
         <mat-icon>repeat</mat-icon
         ><span class="text-lg">{{ tweet.reposts.length }}</span>
       </button>
-      <button (click)="like()" [class.text-red-500]="liked">
-        <mat-icon *ngIf="!liked">favorite_outline</mat-icon>
-        <mat-icon *ngIf="liked">favorite</mat-icon>
-        <span class="text-lg">{{ tweet.likes.length }}</span>
-      </button>
+        <button (click)="like()" [class.text-red-500]="liked">
+            <mat-icon *ngIf="!liked">favorite_outline</mat-icon>
+            <mat-icon *ngIf="liked">favorite</mat-icon>
+            <span class="text-lg">{{ tweet.likes.length }}</span>
+        </button>
     </div>
   </div>
 </div>

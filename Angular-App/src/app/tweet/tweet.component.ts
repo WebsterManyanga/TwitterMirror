@@ -30,32 +30,28 @@ export class TweetComponent implements OnInit {
     followers: [],
     following: [],
   };
+  liked = false;
   likedBy = '';
-  liked = true;
   repost = false
   timePassed = '';
+  likeBtn = `ff`
+
 
   constructor(
     private usersService: UserService,
     public dialog: MatDialog,
     public tweetsService: TweetsService
   ) {
-
-    this.liked = this.tweet.liked;
     this.repost = this.tweet.reposts.find(user => user.username === this.usersService.userInfo.username) ? true : false;
   }
 
   like() {
-    if (!this.liked) {
-      this.tweetsService.addLike(true, this.tweet.id);
-    } else {
-      this.tweetsService.addLike(false, this.tweet.id);
-    }
+    this.liked = this.tweetsService.addLike(this.tweet.id);
 
-    this.liked = !this.liked;
   }
 
   ngOnInit(): void {
+    this.liked = this.tweet.likes.includes(this.usersService.userInfo.username);
     const i = this.usersService.OtherUsers.findIndex(
       (user) => user.username === this.tweet.userId
     );
@@ -64,7 +60,10 @@ export class TweetComponent implements OnInit {
     }
     this.likedBy = this.randomLike();
     this.timePassed = this.calculateTimeSince(this.tweet.date);
+    
   }
+
+
 
   randomLike() {
     let i = Math.round(Math.random() * this.tweet.likes.length);

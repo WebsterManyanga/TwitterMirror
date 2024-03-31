@@ -6,6 +6,7 @@ import { TweetsService } from '../../tweets.service';
 import { Tweet } from '../../tweet';
 import { TweetComponent } from '../../tweet/tweet.component';
 import { RouterLink } from '@angular/router';
+import { UserService } from '../../user.service';
 
 @Component({
   selector: 'app-nav',
@@ -18,15 +19,14 @@ export class NavComponent {
   tweets:Tweet[] = [];
   likedTweets:Tweet[] = [];
 
-  constructor(public tweetsService:TweetsService) {
+  constructor(public tweetsService:TweetsService, public userService:UserService) {
     this.tweets = tweetsService.tweets;
-    this.likedTweets = this.tweets.filter(tweet => tweet.liked);
+    this.likedTweets = this.tweets.filter(tweet => tweet.likes.includes(this.userService.userInfo.username));
 
   }
 
   changeTab() {
-    this.likedTweets = this.tweets.filter(tweet => tweet.liked);
-    console.log(this.likedTweets);
+    this.likedTweets = this.tweets.filter(tweet => tweet.likes.includes(this.userService.userInfo.username));
   }
   
 

@@ -15,8 +15,18 @@ export class TweetsService {
       new Date(2024, 2, 20, 2, 15),
       ['tchala', 'mrKrabs', 'picasso'],
       [
-        new Reply(this.userService.OtherUsers.find(user => user.username === 'tchala')!,'Easy there, Bob! Every day good inna its own way. Just crank up some tunes and let the good vibes chase away the Monday blues. ✌️ #ReggaeMondays'),
-        new Reply(this.userService.OtherUsers.find(user => user.username === 'callMeIsaac')!,"Fun fact: Mondays weren't always a thing, Bob! In ancient Rome, the week started on a market day! Maybe we should bring that back? #HistoryBuffMondays"),
+        new Reply(
+          this.userService.OtherUsers.find(
+            (user) => user.username === 'tchala'
+          )!,
+          'Easy there, Bob! Every day good inna its own way. Just crank up some tunes and let the good vibes chase away the Monday blues. ✌️ #ReggaeMondays'
+        ),
+        new Reply(
+          this.userService.OtherUsers.find(
+            (user) => user.username === 'callMeIsaac'
+          )!,
+          "Fun fact: Mondays weren't always a thing, Bob! In ancient Rome, the week started on a market day! Maybe we should bring that back? #HistoryBuffMondays"
+        ),
       ]
     ),
     new Tweet(
@@ -26,7 +36,12 @@ export class TweetsService {
       new Date(2024, 2, 29, 7, 30),
       ['callMeIsaac', 'spongebob'],
       [
-        new Reply(this.userService.OtherUsers.find(user => user.username === 'beethoven')!,"A question most vexing in these modern times, good sir! To banish forever, or endure the folly? A dilemma worthy of a sonnet! #WriterlyWoes")
+        new Reply(
+          this.userService.OtherUsers.find(
+            (user) => user.username === 'beethoven'
+          )!,
+          'A question most vexing in these modern times, good sir! To banish forever, or endure the folly? A dilemma worthy of a sonnet! #WriterlyWoes'
+        ),
       ]
     ),
     new Tweet(
@@ -35,7 +50,14 @@ export class TweetsService {
       3,
       new Date(2024, 2, 29, 7, 35),
       ['shakespeare', 'picasso', 'bobmarley', 'mrKrabs', 'tchala'],
-      [new Reply(this.userService.OtherUsers.find(user => user.username === 'spongebob')!,"😂😂😂")]
+      [
+        new Reply(
+          this.userService.OtherUsers.find(
+            (user) => user.username === 'spongebob'
+          )!,
+          '😂😂😂'
+        ),
+      ]
     ),
     new Tweet(
       'picasso',
@@ -50,7 +72,12 @@ export class TweetsService {
       new Date(2024, 1, 2, 7, 30),
       ['bobmarley', 'shakespeare'],
       [
-        new Reply(this.userService.OtherUsers.find(user => user.username === 'tchala')!,"This tweet marks the beginning of endless student tears worldwide! But seriously, a groundbreaking discovery, Mr. Newton. #TheScienceOfCalculus")
+        new Reply(
+          this.userService.OtherUsers.find(
+            (user) => user.username === 'tchala'
+          )!,
+          'This tweet marks the beginning of endless student tears worldwide! But seriously, a groundbreaking discovery, Mr. Newton. #TheScienceOfCalculus'
+        ),
       ]
     ),
     new Tweet(
@@ -78,20 +105,15 @@ export class TweetsService {
 
   constructor(public userService: UserService) {}
 
-  addLike(liked: boolean, id: number) {
+  addLike(id: number) {
     const i = this.tweets.findIndex((tweet) => tweet.id === id);
-
-    if (liked) {
-      this.tweets[i].likes.push(this.userService.userInfo.username);
-      this.tweets[i].liked = true;
-    } else {
-      const j = this.tweets[i].likes.findIndex(
-        (user) => user === this.userService.userInfo.name
-      );
-      this.tweets[i].likes.splice(j, 1);
-      this.tweets[i].liked = false;
+    if (this.tweets[i].likes.includes(this.userService.userInfo.username)) {
+      this.tweets[i].likes.pop();
+      return false;
     }
-  }
+    this.tweets[i].likes.push(this.userService.userInfo.username);
+    return true;
+  };
 
   styleHashTags(message: string): string {
     const arr = message.split('');
@@ -101,18 +123,20 @@ export class TweetsService {
         openHash = true;
         arr[i - 1] = [arr[i - 1]] + '<span class="text-primary">';
       }
-  
+
       if (openHash && arr[i] === ' ') {
         openHash = false;
         arr[i] = '</span>' + arr[i];
       }
     }
-  
+
     return arr.join('');
   }
 
   deleteRepost(i: number) {
-    const j = this.tweets[i].reposts.findIndex(user => user.username === this.userService.userInfo.username);
+    const j = this.tweets[i].reposts.findIndex(
+      (user) => user.username === this.userService.userInfo.username
+    );
     this.tweets[i].reposts.splice(j, 1);
     console.log(this.tweets[i].reposts);
   }
