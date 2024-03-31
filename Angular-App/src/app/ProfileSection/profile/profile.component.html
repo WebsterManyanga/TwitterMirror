@@ -1,6 +1,12 @@
-<section class="h-[100vh] relative overflow-clip">
+<section
+  class="h-[100vh] relative overflow-clip"
+  [class.!bg-black]="themeService.isDarkMode"
+  [class.!text-white]="themeService.isDarkMode"
+>
   <div
     class="absolute top-4 left-4 rounded-full w-8 h-8 bg-gray-600 bg-opacity-60 text-white flex justify-center items-center text-xl z-10"
+    [class.!bg-black]="themeService.isDarkMode"
+    [class.!text-white]="themeService.isDarkMode"
   >
     <a routerLink=".." class="text-center flex justify-center items-center"
       ><mat-icon>arrow_back</mat-icon></a
@@ -36,11 +42,15 @@
         >
       </div>
       <div class="mt-2 flex gap-4">
-        <span class="font-bold text-black"
+        <span
+          class="font-bold text-black"
+          [class.!text-white]="themeService.isDarkMode"
           >{{ user.following.length }}
           <span class="text-secondary font-normal">Following</span></span
         >
-        <span class="font-bold text-black"
+        <span
+          class="font-bold text-black"
+          [class.!text-white]="themeService.isDarkMode"
           >{{ user.followers.length }}
           <span class="text-secondary font-normal">Followers</span></span
         >

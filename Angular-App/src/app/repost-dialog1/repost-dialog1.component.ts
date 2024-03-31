@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { QuoteDialogComponent } from '../quote-dialog/quote-dialog.component';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-repost-dialog1',
@@ -12,7 +13,7 @@ import { QuoteDialogComponent } from '../quote-dialog/quote-dialog.component';
   styleUrl: './repost-dialog1.component.scss',
 })
 export class RepostDialog1Component {
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, public themeService: ThemeService) {}
 
   openQuoteDialog() {
     const dialogRef = this.dialog.open(QuoteDialogComponent, {

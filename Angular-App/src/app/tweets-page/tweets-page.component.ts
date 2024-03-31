@@ -5,6 +5,7 @@ import { TweetsService } from '../tweets.service';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../user.service';
 import { HeaderComponent } from '../header/header.component';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-tweets-page',
@@ -17,7 +18,8 @@ export class TweetsPageComponent {
   tweets: Tweet[] = [];
   constructor(
     private tweetsService: TweetsService,
-    private userService: UserService
+    private userService: UserService,
+    public themeService: ThemeService
   ) {
     this.tweets = tweetsService.tweets.filter((tweet) =>
       userService.userInfo.following.includes(tweet.userId)

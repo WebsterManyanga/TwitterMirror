@@ -3,6 +3,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { UserService } from '../user.service';
 import { User } from '../user';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-comment-dialog',
@@ -24,7 +25,7 @@ export class CommentDialogComponent {
 
   disableButton = true;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, public themeService: ThemeService) {
     Object.assign(this.user, userService.userInfo);
   }
 

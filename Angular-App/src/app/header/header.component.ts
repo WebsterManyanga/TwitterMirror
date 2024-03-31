@@ -5,6 +5,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../user';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-header',
@@ -32,7 +33,7 @@ export class HeaderComponent {
   alt="twitter logo"
 /></div>`;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, public themeService: ThemeService) {
     this.user = { ...userService.userInfo };
   }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-search',
@@ -9,5 +10,6 @@ import { HeaderComponent } from '../header/header.component';
   styleUrl: './search.component.scss'
 })
 export class SearchComponent {
+  constructor(public themeService: ThemeService) {}
 
 }

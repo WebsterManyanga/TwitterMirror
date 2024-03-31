@@ -4,6 +4,7 @@ import { NavComponent } from '../nav/nav.component';
 import { UserService } from '../../user.service';
 import { User } from '../../user';
 import { RouterLink } from '@angular/router';
+import { ThemeService } from '../../theme.service';
 
 @Component({
   selector: 'app-profile',
@@ -24,7 +25,7 @@ export class ProfileComponent {
     following: [],
     followers: []
   }
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, public themeService: ThemeService) {
     Object.assign(this.user, userService.userInfo);
   }
 

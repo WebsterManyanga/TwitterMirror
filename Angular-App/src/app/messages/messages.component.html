@@ -1,7 +1,21 @@
-<section class="h-[80vh]">
+<section
+  class="h-[80vh]"
+  [class.!bg-black]="themeService.isDarkMode"
+  [class.!text-white]="themeService.isDarkMode"
+>
   <app-header headerTitle="<h1 class='text-xl'>Messages</h1>"></app-header>
-  <h1 class="text-3xl font-bold text-black pl-6 mt-10">Find more accounts to follow</h1><br/>
-  <p class="text-secondary text-sm pl-6 mt-4">Reposts, recommendations, and more will pop up here as you follow more accounts. Get started by finding some you're interested in.</p>
+  <h1
+    class="text-3xl font-bold text-black pl-6 mt-10"
+    [class.!bg-black]="themeService.isDarkMode"
+    [class.!text-white]="themeService.isDarkMode"
+  >
+    Find more accounts to follow
+  </h1>
+  <br />
+  <p class="text-secondary text-sm pl-6 mt-4">
+    Reposts, recommendations, and more will pop up here as you follow more
+    accounts. Get started by finding some you're interested in.
+  </p>
 
   <!-- <div class=" pb-8 overflow-scroll">
     <div class="border-b border-black sticky top-0 pb-6 bg-white z-20">
@@ -26,5 +40,4 @@
       <app-message></app-message>
     </section>
   </div> -->
-  
 </section>

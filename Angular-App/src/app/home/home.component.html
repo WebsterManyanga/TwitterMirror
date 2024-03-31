@@ -1,4 +1,5 @@
-<div class="h-full">
+<div class="h-full" [class.!bg-black]="themeService.isDarkMode"
+[class.!text-white]="themeService.isDarkMode">
     <mat-tab-group animationDuration="0ms" headerPosition="below">
       <mat-tab>
         <ng-template mat-tab-label

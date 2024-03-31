@@ -1,4 +1,5 @@
-<div class="flex flex-col items-start p-4 gap-3 rounded-full font-bold">
+<div class="flex flex-col items-start p-4 gap-3 rounded-full font-bold" [class.!bg-black]="themeService.isDarkMode"
+[class.!text-white]="themeService.isDarkMode">
   <button class="w-full text-left pl-6" [mat-dialog-close]="true">
     <mat-icon>repeat</mat-icon>Repost
   </button>

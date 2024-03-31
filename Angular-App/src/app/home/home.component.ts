@@ -8,6 +8,7 @@ import { MessagesComponent } from '../messages/messages.component';
 import { NotificationsComponent } from '../notifications/notifications.component';
 import { SearchComponent } from '../search/search.component';
 import { TweetsPageComponent } from '../tweets-page/tweets-page.component';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-home',
@@ -26,5 +27,8 @@ import { TweetsPageComponent } from '../tweets-page/tweets-page.component';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  constructor(public themeService: ThemeService) {
+    
+  }
 
 }

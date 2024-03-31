@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-notifications',
@@ -10,6 +11,7 @@ import { HeaderComponent } from '../header/header.component';
 })
 export class NotificationsComponent {
   mentionsActive = true;
+  constructor(public themeService: ThemeService){}
 
   onViewMentions(view: boolean) {
     this.mentionsActive = view;

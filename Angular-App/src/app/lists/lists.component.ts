@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-lists',
@@ -9,5 +10,8 @@ import { RouterLink } from '@angular/router';
   styleUrl: './lists.component.scss'
 })
 export class ListsComponent {
+  constructor(public themeService: ThemeService) {
+    
+  }
 
 }
