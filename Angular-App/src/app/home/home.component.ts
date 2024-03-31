@@ -5,7 +5,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { MessagesComponent } from '../messages/messages.component';
-import { NavComponent } from '../nav/nav.component';
 import { NotificationsComponent } from '../notifications/notifications.component';
 import { SearchComponent } from '../search/search.component';
 import { TweetsPageComponent } from '../tweets-page/tweets-page.component';
@@ -16,7 +15,6 @@ import { TweetsPageComponent } from '../tweets-page/tweets-page.component';
   imports: [
     CommonModule,
     RouterOutlet,
-    NavComponent,
     MatIconModule,
     HeaderComponent,
     MatTabsModule,

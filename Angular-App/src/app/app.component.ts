@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { NavComponent } from './nav/nav.component';
 import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from './header/header.component';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -16,7 +15,6 @@ import { MessagesComponent } from './messages/messages.component';
   imports: [
     CommonModule,
     RouterOutlet,
-    NavComponent,
     MatIconModule,
     HeaderComponent,
     MatTabsModule,

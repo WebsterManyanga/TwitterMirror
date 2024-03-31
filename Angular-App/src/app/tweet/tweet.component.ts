@@ -32,22 +32,24 @@ export class TweetComponent implements OnInit {
   };
   liked = false;
   likedBy = '';
-  repost = false
+  repost = false;
   timePassed = '';
-  likeBtn = `ff`
-
+  likeBtn = `ff`;
 
   constructor(
     private usersService: UserService,
     public dialog: MatDialog,
     public tweetsService: TweetsService
   ) {
-    this.repost = this.tweet.reposts.find(user => user.username === this.usersService.userInfo.username) ? true : false;
+    this.repost = this.tweet.reposts.find(
+      (user) => user.username === this.usersService.userInfo.username
+    )
+      ? true
+      : false;
   }
 
   like() {
     this.liked = this.tweetsService.addLike(this.tweet.id);
-
   }
 
   ngOnInit(): void {
@@ -60,10 +62,7 @@ export class TweetComponent implements OnInit {
     }
     this.likedBy = this.randomLike();
     this.timePassed = this.calculateTimeSince(this.tweet.date);
-    
   }
-
-
 
   randomLike() {
     let i = Math.round(Math.random() * this.tweet.likes.length);
@@ -80,23 +79,25 @@ export class TweetComponent implements OnInit {
       width: '100%',
       height: '100%',
     });
-    
-    dialogRef.afterClosed().subscribe((result) => {
-      const i = this.tweetsService.tweets.findIndex(
-        (tweet) => tweet === this.tweet
-      );
-      this.tweetsService.tweets[i].replies.push(
-        new Reply(this.usersService.userInfo, result)
-      );
-    });
 
-    
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        const i = this.tweetsService.tweets.findIndex(
+          (tweet) => tweet === this.tweet
+        );
+        this.tweetsService.tweets[i].replies.push(
+          new Reply(this.usersService.userInfo, result)
+        );
+      }
+    });
   }
 
   openRepostDialog() {
     if (this.repost) {
       this.repost = false;
-      const i = this.tweetsService.tweets.findIndex(tweet => tweet.id === this.tweet.id);
+      const i = this.tweetsService.tweets.findIndex(
+        (tweet) => tweet.id === this.tweet.id
+      );
       this.tweetsService.deleteRepost(i);
 
       return;
@@ -110,11 +111,12 @@ export class TweetComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.repost = true;
-        const i = this.tweetsService.tweets.findIndex(tweet => tweet.id === this.tweet.id);
+        const i = this.tweetsService.tweets.findIndex(
+          (tweet) => tweet.id === this.tweet.id
+        );
         this.tweetsService.tweets[i].reposts.push(this.usersService.userInfo);
       }
     });
-
   }
 
   calculateTimeSince(dateCreated: Date): string {
