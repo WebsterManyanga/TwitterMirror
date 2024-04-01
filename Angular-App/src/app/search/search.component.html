@@ -21,6 +21,9 @@
           type="search"
           placeholder="Search Twitter"
           class="w-full mt-4 bg-tertiary p-2 focus:outline-none rounded-xl"
+          [class.!bg-gray-800]="themeService.isDarkMode"
+          [class.!text-white]="themeService.isDarkMode"
+          
         />
         <button class="text-primary">Cancel</button>
       </div>
