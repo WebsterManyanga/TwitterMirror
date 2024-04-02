@@ -7,30 +7,29 @@
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 $my-custom-primary: (
- 50: #1DA1F2,
- 100: #1DA1F2,
- 200: #1DA1F2,
- 300: #1DA1F2,
- 400: #1DA1F2,
- 500: #1DA1F2,
- 600: #1DA1F2,
- 700: #1DA1F2,
- 800: #1DA1F2,
- 900: #1DA1F2,
+  50: #1da1f2,
+  100: #1da1f2,
+  200: #1da1f2,
+  300: #1da1f2,
+  400: #1da1f2,
+  500: #1da1f2,
+  600: #1da1f2,
+  700: #1da1f2,
+  800: #1da1f2,
+  900: #1da1f2,
 
- contrast: (
-   50: rgba(black, 0.87),
-   100: rgba(black, 0.87),
-   200: rgba(black, 0.87),
-   300: white,
-   400: white,
-   500: white,
-   600: white,
-   700: white,
-   800: white,
-   900: white,
-
- )
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  ),
 );
 @include mat.core();
 
@@ -50,11 +49,10 @@ $Angular-App-theme: mat.define-light-theme(
     color: (
       primary: $Angular-App-primary,
       accent: $Angular-App-accent,
-      warn: $Angular-App-warn
+      warn: $Angular-App-warn,
     ),
   )
 );
-
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -69,6 +67,22 @@ $Angular-App-theme: mat.define-light-theme(
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  height: 100vh;
+  overflow: clip;
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    padding: 50px;
+    width: 450px;
+    height: 800px;
+    margin: 0 auto;
+    margin-top: 15px;
+    background-image: url('../src/assets/Apple-iPhone-15-Frame-PNG.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 }
 
 mat-icon {
@@ -77,8 +91,16 @@ mat-icon {
   height: min-content !important;
 }
 
-
 button {
   touch-action: manipulation;
 }
 
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

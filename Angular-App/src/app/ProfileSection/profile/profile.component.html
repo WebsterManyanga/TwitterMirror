@@ -1,5 +1,5 @@
 <section
-  class="h-[100vh] relative overflow-clip"
+  class="h-full relative overflow-hidden"
   [class.!bg-black]="themeService.isDarkMode"
   [class.!text-white]="themeService.isDarkMode"
 >
@@ -14,8 +14,8 @@
   </div>
   <header>
     <div class="relative">
-      <div class="w-full h-44 overflow-clip">
-        <img [src]="user.headerPhoto" alt="heading bar" />
+      <div class="w-full h-44 overflow-clip flex justify-center items-center  bg-blue-300">
+        <img [src]="user.headerPhoto" alt="heading bar" class="w-full h-auto" />
       </div>
       <div
         class="w-20 h-20 border-2 border-white rounded-full absolute -bottom-10 left-4 overflow-clip"

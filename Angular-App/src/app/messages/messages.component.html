@@ -1,9 +1,15 @@
 <section
-  class="h-[80vh]"
+  class="h-full"
   [class.!bg-black]="themeService.isDarkMode"
   [class.!text-white]="themeService.isDarkMode"
 >
   <app-header headerTitle="<h1 class='text-xl'>Messages</h1>"></app-header>
+  <div
+  class="bg-tertiary w-full h-[85vh] pb-8 overflow-scroll"
+  [class.!bg-black]="themeService.isDarkMode"
+  [class.!text-white]="themeService.isDarkMode"
+>
+
   <h1
     class="text-3xl font-bold text-black pl-6 mt-10"
     [class.!bg-black]="themeService.isDarkMode"
@@ -40,4 +46,5 @@
       <app-message></app-message>
     </section>
   </div> -->
+  </div>
 </section>
