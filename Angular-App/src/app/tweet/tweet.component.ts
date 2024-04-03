@@ -74,8 +74,8 @@ export class TweetComponent implements OnInit {
 
   openCommentDialog() {
     const dialogRef = this.dialog.open(CommentDialogComponent, {
-      maxWidth: '100vw',
-      maxHeight: '100vh',
+      maxWidth: '100%',
+      maxHeight: '100%',
       width: '100%',
       height: '100%',
     });
@@ -103,7 +103,7 @@ export class TweetComponent implements OnInit {
       return;
     }
     const dialogRef = this.dialog.open(RepostDialog1Component, {
-      maxWidth: '100vw',
+      maxWidth: '100%',
       width: '100%',
       position: { bottom: '0' },
     });
